@@ -45,7 +45,7 @@ button.addEventListener("click", function () {
   xpTotal += earnedXP;
   xpDisplay.textContent = xpTotal;
 
-  var LessonsCompleted = ["Beginner", "Intermediate", "Advanced"];
+  var LessonsCompleted = ["Beginner", "Intermediate", "Advanced", "Expert"];
   var randomIndex = Math.floor(Math.random() * LessonsCompleted.length);
   var randomLesson = LessonsCompleted[randomIndex];
   feedback.textContent = `You completed a ${randomLesson} lesson and earned ${earnedXP} XP!`;
@@ -74,12 +74,18 @@ button.addEventListener("click", function () {
       "Congratulations! You've reached " +
       LessonsCompleted[1] +
       " level. Keep up the great work!";
-  } else {
+  } else if (xpTotal >= 200 && xpTotal < 300) {
     console.log(LessonsCompleted[2]);
     feedback.textContent =
       "Amazing! You've achieved " +
       LessonsCompleted[2] +
       " level. You're a language learning pro!";
+  } else if (xpTotal >= 300) {
+    console.log(LessonsCompleted[3]);
+    feedback.textContent =
+      "Incredible! You've reached " +
+      LessonsCompleted[3] +
+      " level. You're a language learning master!";
   }
 
   console.log("XP Total: " + xpTotal);
