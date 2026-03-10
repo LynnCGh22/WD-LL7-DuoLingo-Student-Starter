@@ -77,6 +77,17 @@ const earnedXP = xpRewards[Math.floor(Math.random() * xpRewards.length)];
     feedback.textContent = "Amazing! You've achieved " + LessonsCompleted[2] + " level. You're a language learning pro!";
   }
 
+  console.log("XP Total: " + xpTotal);
+
+  // Activate the Reset Button
+  const resetButton = document.getElementById("reset progress");
+  resetButton.style.display = "block";
+  resetButton.addEventListener("click"), function() {
+    xpTotal = 0;
+    xpDisplay.textContent = xpTotal;
+    feedback.textContent = "Progress reset. Start learning again!";
+    resetButton.style.display = "none";
+  }
 });
 
 /*
