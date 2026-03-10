@@ -31,6 +31,7 @@ const xpRewards = [10, 15, 20];
 
 const xpDisplay = document.getElementById("xp-total");
 const button = document.getElementById("complete-lesson");
+const resetButton = document.getElementById("reset-progress");
 const feedback = document.getElementById("feedback");
 
 // ==============================
@@ -38,9 +39,8 @@ const feedback = document.getElementById("feedback");
 // ==============================
 
 button.addEventListener("click", function () {
-
   // STEP 4: Random XP reward
-const earnedXP = xpRewards[Math.floor(Math.random() * xpRewards.length)];
+  const earnedXP = xpRewards[Math.floor(Math.random() * xpRewards.length)];
 
   xpTotal += earnedXP;
   xpDisplay.textContent = xpTotal;
@@ -61,33 +61,38 @@ const earnedXP = xpRewards[Math.floor(Math.random() * xpRewards.length)];
   // else if (...)
   // else (...)
 
-  if(xpTotal < 100)
-  {
+  if (xpTotal < 100) {
     console.log(LessonsCompleted[0]);
-    feedback.textContent = "Level: " + LessonsCompleted[0] + ". " + "Keep going! You're just getting started.";
-  }
-  else if(xpTotal >= 100 && xpTotal < 200)
-  {
+    feedback.textContent =
+      "Level: " +
+      LessonsCompleted[0] +
+      ". " +
+      "Keep going! You're just getting started.";
+  } else if (xpTotal >= 100 && xpTotal < 200) {
     console.log(LessonsCompleted[1]);
-    feedback.textContent = "Congratulations! You've reached " + LessonsCompleted[1] + " level. Keep up the great work!";
-  }
-  else
-  {
+    feedback.textContent =
+      "Congratulations! You've reached " +
+      LessonsCompleted[1] +
+      " level. Keep up the great work!";
+  } else {
     console.log(LessonsCompleted[2]);
-    feedback.textContent = "Amazing! You've achieved " + LessonsCompleted[2] + " level. You're a language learning pro!";
+    feedback.textContent =
+      "Amazing! You've achieved " +
+      LessonsCompleted[2] +
+      " level. You're a language learning pro!";
   }
 
   console.log("XP Total: " + xpTotal);
 
   // Activate the Reset Button
-  const resetButton = document.getElementById("reset progress");
   resetButton.style.display = "block";
-  resetButton.addEventListener("click"), function() {
-    xpTotal = 0;
-    xpDisplay.textContent = xpTotal;
-    feedback.textContent = "Progress reset. Start learning again!";
-    resetButton.style.display = "none";
-  }
+});
+
+resetButton.addEventListener("click", function () {
+  xpTotal = 0;
+  xpDisplay.textContent = xpTotal;
+  feedback.textContent = "Progress reset. Start learning again!";
+  resetButton.style.display = "none";
 });
 
 /*
