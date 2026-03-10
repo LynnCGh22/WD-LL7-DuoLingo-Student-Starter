@@ -24,6 +24,12 @@
 
 let xpTotal = 0;
 const xpRewards = [10, 15, 20];
+const levelRewards = [
+  { level: "Beginner", symbol: "🌱", badge: "Starter Badge" },
+  { level: "Intermediate", symbol: "🔥", badge: "Streak Shield" },
+  { level: "Advanced", symbol: "🚀", badge: "Fluency Star" },
+  { level: "Expert", symbol: "👑", badge: "Master Crown" },
+];
 
 // ==============================
 // STEP 2: DOM Elements
@@ -45,11 +51,6 @@ button.addEventListener("click", function () {
   xpTotal += earnedXP;
   xpDisplay.textContent = xpTotal;
 
-  var LessonsCompleted = ["Beginner", "Intermediate", "Advanced", "Expert"];
-  var randomIndex = Math.floor(Math.random() * LessonsCompleted.length);
-  var randomLesson = LessonsCompleted[randomIndex];
-  feedback.textContent = `You completed a ${randomLesson} lesson and earned ${earnedXP} XP!`;
-
   // STEP 5: CONDITIONAL LOGIC (YOU WRITE THIS)
   // Requirements:
   // - At least 3 user states
@@ -62,30 +63,26 @@ button.addEventListener("click", function () {
   // else (...)
 
   if (xpTotal < 100) {
-    console.log(LessonsCompleted[0]);
+    console.log(levelRewards[0].level);
     feedback.textContent =
-      "Level: " +
-      LessonsCompleted[0] +
-      ". " +
+      `${levelRewards[0].symbol} Level: ${levelRewards[0].level}. ` +
+      `Reward unlocked: ${levelRewards[0].badge}. ` +
       "Keep going! You're just getting started.";
   } else if (xpTotal >= 100 && xpTotal < 200) {
-    console.log(LessonsCompleted[1]);
+    console.log(levelRewards[1].level);
     feedback.textContent =
-      "Congratulations! You've reached " +
-      LessonsCompleted[1] +
-      " level. Keep up the great work!";
+      `${levelRewards[1].symbol} Congratulations! You've reached ${levelRewards[1].level} level. ` +
+      `Reward unlocked: ${levelRewards[1].badge}. Keep up the great work!`;
   } else if (xpTotal >= 200 && xpTotal < 300) {
-    console.log(LessonsCompleted[2]);
+    console.log(levelRewards[2].level);
     feedback.textContent =
-      "Amazing! You've achieved " +
-      LessonsCompleted[2] +
-      " level. You're a language learning pro!";
+      `${levelRewards[2].symbol} Amazing! You've achieved ${levelRewards[2].level} level. ` +
+      `Reward unlocked: ${levelRewards[2].badge}. You're a language learning pro!`;
   } else if (xpTotal >= 300) {
-    console.log(LessonsCompleted[3]);
+    console.log(levelRewards[3].level);
     feedback.textContent =
-      "Incredible! You've reached " +
-      LessonsCompleted[3] +
-      " level. You're a language learning master!";
+      `${levelRewards[3].symbol} Incredible! You've reached ${levelRewards[3].level} level. ` +
+      `Reward unlocked: ${levelRewards[3].badge}. You're a language learning master!`;
   }
 
   console.log("XP Total: " + xpTotal);
